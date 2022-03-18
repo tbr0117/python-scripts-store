@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  pvx_py_script_handler:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8004
+    environment:
+      - PY_CUSTOM_SCRIPTS_ROOT_PATH=/zpy_python_scripts_hub
+    ports:
+      - "8004:8004"
+    volumes:
+      - .:/pvx-python-scripts
